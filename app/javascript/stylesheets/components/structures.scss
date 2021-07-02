@@ -1,0 +1,51 @@
+@import 'bootstrap_variables';
+@import 'mixins';
+
+.structures {
+  &__scroll-box {
+    @include desktop {
+      height: 1px;
+    }
+    min-height: 50px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background-color: rgba(0, 0, 0, .07);
+      border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background-color: rgba(0, 0, 0, .3);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+  }
+}
+
+.structure_item_risk__impacts {
+  // background: #ddf;
+  margin: 1rem 0 1rem 0.5rem;
+
+  span {
+    color: $secondary;
+  }
+}
+
+.structure_item_action_picker {
+  font-weight: bold;
+  font-size: 105%;
+}
+
+.bullet_say__bullet {
+  font-size: 130%;
+  position: relative;
+  top: -0.11rem;
+  
+}
+
+@media only screen and (max-width: 1100px) {
+  .bullet_say__text {
+    font-size: 80%;
+  }
+}

@@ -1,0 +1,39 @@
+@import "bootstrap_variables";
+@import "font-awesome";
+
+html, body {
+  background: $white !important;
+}
+
+body.admin {
+  .admin-nav {
+    .active {
+      font-weight: bold;
+    }
+  }
+
+  .admin-container {
+    background: white;
+  }
+
+  .metric {
+    &__tree {
+      .inert {
+        color: $gray2;
+      }
+
+      .condition a {
+        color: $blue;
+      }
+      .action a {
+        color: $red;
+      }
+    }
+  }
+}
+
+.codified {
+  background:black;
+  color:lime;
+  padding:30px;
+}

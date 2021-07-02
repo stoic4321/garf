@@ -1,0 +1,46 @@
+@import 'bootstrap_variables';
+@import 'mixins';
+
+.page-header {
+  &__info {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: $dark;
+    span {
+      margin-right: 1rem;
+      color: $secondary;
+    }
+    &:hover {
+      box-shadow: inset 0 0 0.2rem $gray-500;
+    }
+  }
+  &__health-gradient {
+    padding: 0 2rem;
+    margin-top: 0rem;
+    display: flex;
+    align-items: center;
+    height: 6rem;
+    // background: #333333; /* fallback for old browsers */
+    // background: -webkit-linear-gradient(
+    //   to right,
+    //   #94cc79,
+    //   #ffcb2b,
+    //   #f15b47
+    // ); /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #94cc79, #ffcb2b, #f15b47);
+    border-radius: 16px;
+    @include mobile {
+      min-height: 4rem;
+    }
+    p {
+      color: white;
+      margin:0;
+    }
+    &.conditions {
+    }
+    &.actions {
+      margin: .5rem 0;
+      height: 3.5rem;
+    }
+  }
+}

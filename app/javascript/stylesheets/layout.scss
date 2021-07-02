@@ -1,0 +1,382 @@
+@import 'bootstrap_variables';
+@import 'mixins';
+
+$topbar-height: 105px;
+$sidebar-width: 90px;
+$maincol-width: 100%;
+$mobile-menu-height: 90px;
+$mobile-topbar-height: 60px;
+
+.cc {
+  position: relative;
+
+  &-leftcol {
+    @include desktop {
+      width: $sidebar-width;
+    }
+
+    &__top {
+      height: $topbar-height;
+    }
+  }
+
+  &-maincol {
+    @include desktop {
+      width: $maincol-width;
+      margin-left: $sidebar-width;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &-navbar {
+    background: $white;
+    z-index: $zindex-sticky;
+
+    @include desktop {
+      position: relative;
+      border-top-left-radius: 70px;
+      height: $topbar-height;
+    }
+
+    @include mobile {
+      position: absolute;
+      height: $mobile-topbar-height;
+      top: 0;
+      padding-left: 11.18px;
+      padding-right: 0;
+    }
+  }
+
+  &-logo {
+    height: auto;
+
+    @include desktop {
+      width: 204px;
+    }
+
+    @include mobile {
+      width: 98px;
+    }
+  }
+
+  &-usernav {
+    // @include vw-mattr(width, 275px, 140px);
+    // @include vw-mattr(font-size, 16px, 10px);
+
+    @include mobile {
+      position: absolute;
+      right: vw-mobile(10px);
+    }
+
+    // &__notifications {
+    //   @include vw-mattr(height, 32px, 18.56px);
+    //   @include vw-mattr(width, 30.92px, 17.94px);
+    //   @include vw-mattr(margin-top, 18px, 12px);
+    //   @include vw-mattr(margin-right, 29.59px, 12.89px);
+    // }
+
+    // &__avatar {
+    //   @include vw-mattr(height, 69px, 30.82px);
+    //   @include vw-mattr(width, 69px, 30.82px);
+
+    //   @include mobile {
+    //     margin-top: vw-mobile(8px);
+    //   }
+    // }
+
+    &__menu {
+      // @include vw-mattr(margin-top, 18px, 12px);
+      margin-top: 18px;
+
+      // @include vw-mattr(width, 140px, 70px);
+      width: 140px;
+
+      // @include mobile {
+      //   font-size: vw-mobile(10px);
+      // }
+
+      .dropdown-toggle {
+        color: $black;
+      }
+
+      a {
+        color: $gray3 !important;
+
+        @include desktop {
+          font-size: 16px;
+          // font-size: vw(16px) !important;
+          // line-height: vw(24px) !important;
+          line-height: 24px;
+        }
+        // @include mobile {
+        //   font-size: vw-mobile(10px) !important;
+        // }
+      }
+
+      &--dropdown {
+        top: 73px;
+        right: -16px;
+        // @include vw-mattr(top, 73px, 39px);
+        // @include vw-attr(right, -16px);
+        border: none;
+        border-radius: 0;
+      }
+    }
+  }
+
+  // &-last-updated {
+  //   @include vw-mattr(font-size, 15px, 8px);
+  //   @include vw-mattr(line-height, 17.25px, 9px);
+  //   font-weight: 600;
+
+  //   @include desktop {
+  //     position: relative;
+  //     top: vw(-9px);
+  //     margin-left: vw(20.68px);
+  //   }
+
+  //   // @include mobile {
+  //   //   position: relative;
+  //   //   top: vw-mobile(6.84px);
+  //   //   right: vw-mobile(16px);
+  //   //   text-align: right;
+  //   // }
+
+  //   strong {
+  //     font-weight: 700;
+  //   }
+  // }
+
+  &-alert {
+    position: absolute;
+    z-index: 1000;
+    width: 93.3%;
+    @include box-shadow;
+  }
+  &-toast {
+    position: absolute;
+    z-index: 1000;
+    min-width: 10rem;
+    top: -1.5rem;
+    left: -0.6rem;
+    border-radius: 0 0 14px 0;
+    padding: 1rem;
+    min-height: 4.6rem;
+    // @include box-shadow;
+  }
+
+  &-main {
+    background: $gray1;
+    // position: absolute;
+
+    @include desktop {
+      margin-left: $sidebar-width;
+      // margin-top: $topbar-height;
+      // min-height: 100%;
+      // min-height: 900px;//vw(900px);
+      height: calc(100% - #{$topbar-height}) !important;
+      padding: 34px 37px; //vw(34px) vw(37px);
+      border-bottom-left-radius: 70px;
+    }
+
+    // @include mobile {
+    //   padding: vw-mobile(9.17px) vw-mobile(14px);
+    //   top: vw-mobile(64.3px);
+    // }
+  }
+  &-main-page {
+    @include desktop {
+      height: 100%;
+    }
+    @include mobile {
+      padding-bottom: 5rem;
+    }
+  }
+  &-nav-box {
+    @include desktop {
+      position: absolute;
+      top: $topbar-height;
+      left: 0;
+      z-index: 2000;
+    }
+    @include mobile {
+      bottom: 0;
+      left: 0;
+      z-index: 2000;
+    }
+  }
+  &-nav {
+    @include desktop {
+      // position: absolute;
+      // top: $topbar-height;
+      // left: 0;
+      // width: 100%;
+    }
+
+    @include mobile {
+      position: fixed !important;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: $mobile-menu-height;
+      background-color: $site-background;
+      z-index: $zindex-fixed;
+      display: flex;
+    }
+  }
+
+  &-react-nav {
+    text-align: center;
+    &--btn {
+      width: $sidebar-width;
+      position: relative;
+      text-align: center;
+      // margin-left: 1rem;
+      @include mobile {
+        width: 100%;
+      }
+    }
+    // @include mobile {
+    //   border-bottom: solid vw-mobile(4px) $site-background;
+    //   width: 20%;
+    // }
+
+    // @include desktop {
+    //   border-bottom: solid vw(4px) $site-background;
+    //   padding-top: vw(16.39px);
+    //   padding-bottom: vw(13.61px);
+    // }
+
+    // $mobile-icon-height: 25.72px;
+
+    &.cc-icon {
+      @include desktop {
+        &__conditions {
+          height: 30px;
+          width: auto;
+        }
+        &__actions {
+          height: 30px;
+          width: auto;
+        }
+        &__journeys {
+          height: 30px;
+          width: auto;
+        }
+      }
+
+      // @include mobile {
+      //   height: vw-mobile(24.72px);
+      //   width: 100%;
+      // }
+    }
+
+    &--subtext {
+      color: $dark;
+      font-size: 12px;
+      // @include vw-mattr(font-size, 12px, 9px);
+      margin-top: 6.8px;
+      // @include vw-mattr(margin-top, 6.8px, 5.96px);
+      &.active {
+        color: $white;
+      }
+    }
+  }
+
+  &-header-image {
+    width: 100%;
+
+    // @include mobile {
+    //   height: vw-mobile(60px);
+    // }
+  }
+  &-avatar-btn {
+    @include desktop {
+      background: #cccccc66;
+      color: black;
+      position: absolute;
+      top: -1.5rem;
+      z-index: 2000;
+      right: -5rem;
+      font-size: 10px;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+}
+.cc-react-nav--btn:hover,
+.cc-react-nav--btn.active {
+  background: $gray3;
+  cursor: pointer;
+  @include desktop {
+    // border-bottom: solid vw(4px) $dark;
+  }
+  @include mobile {
+    // border-bottom: solid vw-mobile(4px) $dark;
+  }
+}
+.powered-by-tanjo {
+  @include desktop {
+    width: 80px; //($sidebar-width * 0.8);
+    position: absolute;
+    bottom: 1rem;
+    left: 0.8rem;
+    // margin-left: -80px;
+    // left: ($sidebar-width * -1) + 1vw;
+
+    img {
+      width: 90%;
+      height: auto;
+    }
+  }
+
+  @include mobile {
+    display: none;
+    margin-bottom: $mobile-menu-height;
+    padding: 20px;
+    text-align: center;
+
+    img {
+      width: 70%;
+      height: auto;
+    }
+  }
+}
+
+#unity-wrapper {
+  @include mobile {
+    display: none !important;
+  }
+}
+.unity-sizing {
+  // height: vw(625px);
+  height: 95%;
+}
+
+#unity-fullscreen-button {
+  position: absolute;
+  right: -6px !important;
+  bottom: 16px !important;
+  
+  background: #888 !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0.2rem !important;
+  cursor: pointer;
+  .arr{
+    color:white;
+  }
+  .up{
+    transform: rotate(-45deg) translate(0.6rem, 0.1rem);
+  }
+  .down{
+    transform: rotate(135deg) translate(-0.2rem, 0.7rem) ;
+  }
+  &:hover {
+    border: white;
+  }
+}
