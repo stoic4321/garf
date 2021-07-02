@@ -1,0 +1,17 @@
+.save-journey {
+
+  button {
+    @include vw-mattr(width, 180px, 180px);
+  }
+
+  &__popup-modal {
+    &--load{}
+    &--edit{
+      width: 40rem;
+    }
+    &--delete{}
+    &--share{
+      width: 40rem;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.stepper-panel {
+  &__progress {
+    .word {
+      color:#808285;
+    }
+    .cursor {
+      &:hover{
+        cursor: pointer;
+        background: #bbb;
+        color:white;
+      }
+    }
+    .dot {
+      background:#e5e6e6;
+      display: inline-block;
+      border: none;
+      border-radius: 50%;
+      width: .5rem;
+      height: .5rem;
+      &.active {
+        background: #808285;
+      }
+    }
+  }
+}

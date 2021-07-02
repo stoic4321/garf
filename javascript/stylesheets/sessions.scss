@@ -1,0 +1,21 @@
+@import "bootstrap_variables";
+@import "mixins";
+
+.cc-sessions {
+  @include vw-mattr(margin-top, 24px, 14px);
+
+  h1 {
+    @include vw-mattr(margin-bottom, 24px, 14px);
+    @include vw-mattr(font-size, 24px, 24px);
+  }
+
+  &__links {
+    @include vw-mattr(line-height, 24px, 24px);
+  }
+
+  input {
+    @include vw-attr(padding, 14px);
+    @include vw-attr(border-radius, 8px);
+    border: 1px solid $gray2;
+  }
+}

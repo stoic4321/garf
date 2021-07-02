@@ -1,0 +1,33 @@
+.box {
+  @include desktop {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    // border: 1px solid black;
+  }
+  &>.box {
+    &-header {
+      flex: 0 1 auto;
+      // border: 1px solid red;
+    }
+
+    &-content {
+      @include desktop {
+        flex: 1 1 auto;
+      }
+      // border: 1px solid green;
+    }
+
+    &-footer {
+      @include desktop {
+        flex: 0 1 5px;
+      }
+      // border: 1px solid blue;
+    }
+  }
+
+  & .start {
+    justify-content: flex-start;
+    display: flex;
+  }
+}

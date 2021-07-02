@@ -1,0 +1,20 @@
+.gauge-chart-container {
+  height: 1px;
+  top: -2.8rem;
+  position: relative;
+
+  &>* {
+    height: 1px;
+  }
+
+  & [class^="gauge-chart"] {
+    height: 1px;
+
+    &__risk {
+      // position:relative;
+      // left: -9.2rem;
+      height: 1px;
+      margin-top: -3.3rem;
+    }
+  }
+}

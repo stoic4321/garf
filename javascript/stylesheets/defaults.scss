@@ -1,0 +1,93 @@
+@import "bootstrap_variables";
+@import "mixins";
+
+html, body {
+  background: $site-background;
+  font-weight: 400;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $gray3;
+
+  h1 {
+    font-weight: 700;
+    font-size: $h1-font-size;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: $h2-font-size;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: $h3-font-size;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: $h4-font-size;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  h5 {
+    font-weight: 700;
+    font-size: $h5-font-size;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  h6 {
+    font-weight: 600;
+    font-size: $h6-font-size;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  p, li, p.cc-p1 {
+    font-weight: 400;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $gray3;
+  }
+
+  .cc-points {
+    font-weight: 700;
+    @include vw-attr(font-size, 11px);
+    @include vw-attr(line-height, 23px);
+    color: $blue;
+  }
+  a {
+    color: $blue;
+  }
+}
+
+input {
+  background: $gray2;
+  border: 2px solid $blue;
+  border-radius: .5rem;
+  font-weight: 600;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  padding: 1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
