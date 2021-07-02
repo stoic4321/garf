@@ -1,0 +1,10 @@
+.row.mb-3
+  - admin_dashboard_cards.each do |card|
+    .col-sm-12.col-md-3.my-3
+      .card
+        .card-body.text-center
+          %a{href: "/admin/#{card.pluralize}"}
+            - count = card.classify.constantize.count
+            %h5.card-title= number_with_delimiter count
+            %h6.card-subtitle.mb-2.text-muted
+              = count == 1 ? card.titleize : card.titleize.pluralize

@@ -1,0 +1,33 @@
+!!!
+%html.h-100
+  %head
+    = render "layouts/meta"
+    = stylesheet_link_tag '//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css'
+    = stylesheet_link_tag '//cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css'
+    = javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js'
+    = javascript_include_tag 'https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js'
+    = javascript_include_tag 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
+    :javascript
+      $(document).ready(function(){
+        $('table.datatables').DataTable();
+        $('select').select2();
+      });
+  %body.admin.h-100
+    = render "layouts/admin_navbar"
+    .container-fluid.admin-container{style:'background:white; padding-bottom: 40px'}
+      .row
+        %nav#sidebarMenu.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+          .sidebar-sticky.pt-3
+            %ul.nav.flex-column.admin-nav
+              %li.nav-item= link_to("Home", "/admin", class: admin_link_classes("home"))
+              - admin_cms_options.each do |link, text|
+                %li.nav-item= link_to(text.titleize, "/admin/#{link}", class: admin_link_classes(text))
+        %main.col-md-9.ml-sm-auto.col-lg-10.px-md-4{:role => "main"}
+          = render "layouts/flash"
+          .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            %h1.h2 #{@scope} #{controller_name.titleize}
+          = yield
+
+    = render "layouts/analytics"

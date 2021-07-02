@@ -1,0 +1,57 @@
+= form_for [:admin, @structure], html: {style: 'display:inline', role: 'form'} do |f|
+  - if @structure.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@structure.errors.count, "error")} prohibited this structure from being saved:"
+      %ul
+        - @structure.errors.full_messages.each do |message|
+          %li= message
+  = f.submit 'Save', class: "btn btn-primary mr-2"
+  %br
+  %br
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :flavor
+    = select_tag "structure[flavor]", options_for_select(Structure.flavors.keys, @structure.flavor), { class: 'form-control' }
+  .form-group
+    = f.label :handle
+    = f.text_field :handle, class: 'form-control'
+  .form-group
+    = f.label :data
+    -# = f.text_area :data, class: 'form-control', style: 'font-family:monospace;'
+    = react_component('admin/JsonEditPane', {data:@structure.data, id:'structure_data', name:'structure[data]', width:'100%', style:{display:'noXXXXne'}} )
+  .form-group
+    = f.label :text
+    = f.text_area :text, class: 'form-control', style: 'font-size:18px; font-family:monospace; height:100px; background:black; color:yellow;'
+  .form-group
+    = f.label :picker
+    = f.text_field :picker, class: 'form-control'
+  .form-group
+    = f.label :impacts
+    = f.text_area :impacts, class: 'form-control', style: 'font-size:18px; font-family:monospace; height:500px; background:black; color:#4EE077;'
+  .border.border-dark.p-3.mb-4
+    .form-group
+      = f.label :parent
+      = f.select :parent_id, nested_set_options(Structure, @structure) {|i| "#{'-' * i.level} #{i.name}" }, {include_blank: true}, { class: 'form-control' }
+    %p
+      %b Siblings:
+      - if @structure.parent && @structure.parent.children.try(:any?)
+        \|
+        - @structure.parent.children.each do |child|
+          - if @structure.id == child.id
+            &gt;&gt;&gt;
+          = "#{child.ordering}."
+          = child.name
+          \|
+
+    .form-group
+      = f.label :ordering
+      = f.text_field :ordering, class: 'form-control'
+
+    .form-group
+      = f.label :active
+      = f.check_box :active
+      
+  .actions.d-inline
+    = f.submit 'Save', class: "btn btn-primary mr-2"
