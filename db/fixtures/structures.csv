@@ -1,0 +1,18 @@
+id,name,flavor,data,text,picker,parent_id,children_count,lft,rgt,depth,active,created_at,updated_at
+1,Vitals,condition,{},"",Group,,2,1,6,0,true,2020-12-17 20:22:54 UTC,2020-12-17 23:20:59 UTC
+2,Sex,condition,"{""pose3D"":{""mesh"":""Female"",""markers"":[],""highlights"":[],""hideShows"":[{""s"":"".*""}],""cameras"":[]}}","","PickEnum(Male,Female)",1,0,2,3,1,true,2020-12-17 20:24:03 UTC,2020-12-18 14:27:35 UTC
+3,Blood Pressure,condition,"{""pose3D"":{""mesh"":""Female"",""markers"":[{""place"":""heart"",""bg"":""#FF0000"",""icon"":""big-X""}],""highlights"":[{""place"":""heart"",""bg"":""#FF0000""}],""hideShows"":[{""h"":"".*""},{""s"":""heart""},{""s"":""arteries.*""},{""s"":""veins.*""}],""cameras"":[]}}","",PickBloodPressure(),1,0,4,5,1,true,2020-12-17 20:25:18 UTC,2020-12-17 22:55:39 UTC
+4,Diet,condition,{},"",Group,,1,7,10,0,true,2020-12-17 20:25:35 UTC,2020-12-17 20:26:37 UTC
+5,Daily Alcohol,condition,{},"","PickInteger(0,8)",4,0,8,9,1,true,2020-12-17 20:26:26 UTC,2020-12-17 20:26:37 UTC
+6,Breathing,condition,"{""pose3D"":{""mesh"":""Female"",""markers"":[{""place"":""trachea"",""bg"":""#FF0000"",""icon"":""big-X""}],""highlights"":[{""place"":""trachea"",""bg"":""#FF0000""}],""hideShows"":[{""h"":"".*""},{""s"":""trachea""},{""s"":""lung-L""},{""s"":""lung-R""},{""s"":""tongue""},{""s"":""bronchus""}],""cameras"":[]}}","",Group,,2,11,18,0,true,2020-12-17 20:27:04 UTC,2020-12-17 23:22:14 UTC
+7,COPD,condition,"{""pose3D"":{""mesh"":""Female"",""markers"":[{""place"":""trachea"",""bg"":""#FF0000"",""icon"":""big-X""}],""highlights"":[{""place"":""trachea"",""bg"":""#FF0000""}],""hideShows"":[{""h"":"".*""},{""s"":""trachea""},{""s"":""lung-L""},{""s"":""lung-R""},{""s"":""tongue""},{""s"":""bronchus""}],""cameras"":[]}}","",PickSeverity(),6,1,12,15,1,true,2020-12-17 20:27:57 UTC,2020-12-18 18:13:42 UTC
+8,Asthma,condition,{},"","PickEnum(None,Mild,Moderate,Severe)",6,0,16,17,1,true,2020-12-17 20:28:20 UTC,2020-12-17 20:55:56 UTC
+9,CPAP,action,{},Continuous positive airway pressure,PickSwitch()>>BetterAll(20),7,0,13,14,2,true,2020-12-17 20:46:54 UTC,2020-12-19 19:54:02 UTC
+10,Mental,condition,"{""pose3D"":{""mesh"":""Female"",""markers"":[{""place"":""brain"",""bg"":""#FF0000"",""icon"":""big-X""}],""highlights"":[{""place"":""brain"",""bg"":""#FF0000""}],""hideShows"":[{""h"":"".*""},{""s"":""brain""},{""s"":""nerves.*""},{""s"":""spinal-cord""}],""cameras"":[]}}","",Group,,1,19,22,0,true,2020-12-17 23:10:17 UTC,2020-12-17 23:24:01 UTC
+11,Stress,condition,"{""pose3D"":{""mesh"":""Female"",""markers"":[{""place"":""brain"",""bg"":""#FF0000"",""icon"":""big-X""}],""highlights"":[{""place"":""brain"",""bg"":""#FF0000""}],""hideShows"":[{""h"":"".*""},{""s"":""brain""},{""s"":""nerves.*""},{""s"":""spinal-cord""}],""cameras"":[]}}","","PickEnum(None,Low,Medium,High)",10,0,20,21,1,true,2020-12-17 23:11:38 UTC,2020-12-17 23:11:38 UTC
+12,Broken Leg,condition,{},"",PickSwitch(),,0,23,24,0,true,2020-12-22 14:06:03 UTC,2020-12-22 14:06:03 UTC
+13,Activity,condition,{},"",Group,,2,25,34,0,true,2020-12-22 20:39:41 UTC,2020-12-22 21:23:25 UTC
+14,Maskless public events,condition,{},"",PickSwitch(),13,0,26,27,1,true,2020-12-22 20:41:00 UTC,2020-12-22 20:41:37 UTC
+15,Work indoors,condition,{},"","PickEnum(None,Rarely,Some,Often)",13,2,28,33,1,true,2020-12-22 20:54:33 UTC,2020-12-22 21:23:25 UTC
+16,Wear simple mask,action,{},"",PickSwitch(),15,0,29,30,2,true,2020-12-22 21:23:01 UTC,2020-12-22 21:23:01 UTC
+17,Wear sealed mask,action,{},"",PickSwitch(),15,0,31,32,2,true,2020-12-22 21:23:25 UTC,2020-12-22 21:23:25 UTC

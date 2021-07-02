@@ -1,0 +1,998 @@
+[
+  {
+    "id": 76,
+    "name": "Activity",
+    "handle": "#g_activity",
+    "impacts": "",
+    "ordering": 110,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 1,
+    "depth": 0,
+    "active": false,
+    "children": [
+      {
+        "id": 77,
+        "name": "Smoker",
+        "handle": "#c_smoker",
+        "impacts": "",
+        "ordering": 10,
+        "flavor": "condition",
+        "data": {
+        },
+        "text": "",
+        "picker": "PickDot()>>#smoker",
+        "parent_id": 76,
+        "children_count": 0,
+        "depth": 1,
+        "active": false,
+        "children": [
+
+        ]
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Breathing",
+    "handle": "#g_breathing",
+    "impacts": "",
+    "ordering": 20,
+    "flavor": "condition_group",
+    "data": {
+      "pose3D": {
+        "mesh": "Female",
+        "cameras": [
+
+        ],
+        "markers": [
+          {
+            "bg": "#FF0000",
+            "icon": "big-X",
+            "place": "trachea"
+          }
+        ],
+        "hideShows": [
+          {
+            "h": ".*"
+          },
+          {
+            "s": "trachea"
+          },
+          {
+            "s": "lung-L"
+          },
+          {
+            "s": "lung-R"
+          },
+          {
+            "s": "tongue"
+          },
+          {
+            "s": "bronchus"
+          }
+        ],
+        "highlights": [
+          {
+            "bg": "#FF0000",
+            "place": "trachea"
+          }
+        ]
+      }
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 1,
+    "depth": 0,
+    "active": true,
+    "children": [
+      {
+        "id": 44,
+        "name": "COPD",
+        "handle": "#c_copd",
+        "impacts": ".hide()\r\n.ifCond(true)\r\n  .show()\r\n  .set($risk,-25)\r\n  .set($risk_act,-25)\r\n\r\n",
+        "ordering": 20,
+        "flavor": "condition",
+        "data": {
+          "pose3D": {
+            "cameras": [
+
+            ],
+            "markers": [
+              {
+                "bg": "#FF0000",
+                "icon": "big-X",
+                "text": "COPD",
+                "place": "trachea"
+              }
+            ],
+            "hideShows": [
+              {
+                "h": ".*"
+              },
+              {
+                "s": "trachea"
+              },
+              {
+                "s": "lung-L"
+              },
+              {
+                "s": "lung-R"
+              },
+              {
+                "s": "tongue"
+              },
+              {
+                "s": "bronchus"
+              }
+            ],
+            "highlights": [
+              {
+                "bg": "#FF0000",
+                "place": "trachea"
+              }
+            ]
+          }
+        },
+        "text": "\r\n**Chronic Obstructive pulmonary disease (COPD)** is an inflammatory lung disease causing difficulty breathing, cough, mucus (sputum) production and wheezing.",
+        "picker": "PickDot()",
+        "parent_id": 43,
+        "children_count": 1,
+        "depth": 1,
+        "active": true,
+        "children": [
+          {
+            "id": 45,
+            "name": "Always tired",
+            "handle": "#r_copd_always_tired",
+            "impacts": ".say(Auto accidents)\r\n.say(Grumpiness & angry outbursts)\r\n.say(Difficulty thinking)\r\n\r\n",
+            "ordering": 10,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 44,
+            "children_count": 1,
+            "depth": 2,
+            "active": true,
+            "children": [
+              {
+                "id": 46,
+                "name": "Use CPAP sleep aid machine",
+                "handle": "#a_copd_cpap",
+                "impacts": "",
+                "ordering": null,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "Continuous positive airway pressure",
+                "picker": "Pick(Does not, Occasionally, Often)",
+                "parent_id": 45,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Diet",
+    "handle": "#g_diet",
+    "impacts": "",
+    "ordering": 10,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 1,
+    "depth": 0,
+    "active": true,
+    "children": [
+      {
+        "id": 48,
+        "name": "T2 Diabetes",
+        "handle": "#c_diabetes",
+        "impacts": ".hide()\r\n.ifCond(true)\r\n  .show()\r\n  .set($risk,-25)\r\n  .set($risk_act,-25)",
+        "ordering": 10,
+        "flavor": "condition",
+        "data": {
+          "pose3D": {
+            "hideShows": [
+              {
+                "h": ".*"
+              },
+              {
+                "s": "#digestive"
+              },
+              {
+                "s": "#circulatory"
+              }
+            ]
+          }
+        },
+        "text": "**Problems getting energy from carbs (sugar, bread, starches).**\r\n\r\nRisk factors include family history and genetics\r\n",
+        "picker": "PickDot()",
+        "parent_id": 47,
+        "children_count": 5,
+        "depth": 1,
+        "active": true,
+        "children": [
+          {
+            "id": 49,
+            "name": "Eye disease (retinopathy)",
+            "handle": "#r_diab_eye_disease",
+            "impacts": "ifCond(true)\r\n  .set($dbEyeRisk,70)\r\n  .say(\r\n<GaugeChart score=\"{$dbEyeRisk}\" />\r\n)\r\n  .say(Impact 1)\r\n  .say(Impact 2)\r\n  .say(Impact 3)",
+            "ordering": 50,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 48,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          },
+          {
+            "id": 50,
+            "name": "Heart disease",
+            "handle": "#r_diab_heart_disease",
+            "impacts": "ifCond(true)\r\n  .set($dbHeartRisk,35)\r\n  .say(\r\n<GaugeChart score=\"{$dbHeartRisk}\" />\r\n)\r\n  .say(Impact 1)\r\n  .say(Impact 2)\r\n  .say(Impact 3)",
+            "ordering": 40,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 48,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          },
+          {
+            "id": 51,
+            "name": "Kidney disease (nephropathy)",
+            "handle": "#r_diab_kidney_disease",
+            "impacts": "ifCond(true)\r\n  .set($dbkidneyRisk,20)\r\n  .say(\r\n<GaugeChart score=\"{$dbkidneyRisk}\" />\r\n)\r\n  .say(Impact 1)\r\n  .say(Impact 2)\r\n  .say(Impact 3)",
+            "ordering": 30,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 48,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          },
+          {
+            "id": 52,
+            "name": "Nerve damage (neuropathy)",
+            "handle": "#r_diab_nerve_damage",
+            "impacts": "ifCond(true)\r\n  .set($nerveRisk,45)\r\n  .say(\r\n<GaugeChart score=\"{$nerveRisk}\" />\r\n)\r\nifCond(*)\r\n .tag(#nrv1)\r\n .say(Loss of feeling in hands & feet)\r\nifCond(true)\r\n .tag(#foot_amp)\r\n .say(Foot amputation)\r\n .point(foot_R,Amputation,Red)\r\nifCond(true)\r\n .tag(#nrv1)\r\n .say(Weakness of the legs)\r\nif(Severe)\r\n .tag(#nrv1)\r\n .say(Urinary incontinence)\r\nif(*)\r\n .tag(#smoker)\r\n .say(Smoking drastically increases chances of Neuropathy)\r\n",
+            "ordering": 20,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 48,
+            "children_count": 4,
+            "depth": 2,
+            "active": true,
+            "children": [
+              {
+                "id": 53,
+                "name": "Bring glucose levels under control",
+                "handle": "#a_diab_nerv_bring_glucose",
+                "impacts": "ifAction(Yes)\r\n  .set($risk,-5)\r\n  .set($nerveRisk,-1)\r\n  .say(Great choice!)\r\n  .hide(#foot_amp)\r\n",
+                "ordering": 5,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 52,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              },
+              {
+                "id": 54,
+                "name": "Check feet daily for sores, dry, or damaged skin",
+                "handle": "#a_diab_nerv_check_feet",
+                "impacts": "ifAction(Yes)\r\n  .set($risk,-4)\r\n  .set($nerveRisk,-1)\r\n  .strike(#foot_amp)",
+                "ordering": 10,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 52,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              },
+              {
+                "id": 55,
+                "name": "Occasional insulin only",
+                "handle": "#a_diab_nerv_occasional_insulin",
+                "impacts": "",
+                "ordering": 30,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 52,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              },
+              {
+                "id": 56,
+                "name": "Quit or avoid smoking",
+                "handle": "#a_diab_nerv_quit_or",
+                "impacts": "ifAc(true)\r\n  .strike(#smoker)",
+                "ordering": 40,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 52,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              }
+            ]
+          },
+          {
+            "id": 57,
+            "name": "Stroke",
+            "handle": "#r_diab_stroke",
+            "impacts": "ifCond(true)\r\n  .say(\r\n<GaugeChart score=\"{$strokeRisk}\" />\r\n)\r\n  .set($strokeRisk,100)\r\n  .say(Paralysis of arms, legs, face, or more)\r\n  .tag(#db_stroke)\r\n  .say(Difficulty talking & eating)\r\n  .say(Loss of memory and thinking skills.)\r\n  .say(Chronic pain or numbness)\r\n  .say(Loss of emotional control)\r\n  .say(Risk of stroke is {$strokeRisk})",
+            "ordering": 10,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "PickSwitch()",
+            "parent_id": 48,
+            "children_count": 3,
+            "depth": 2,
+            "active": true,
+            "children": [
+              {
+                "id": 58,
+                "name": "Bring glucose levels under control",
+                "handle": "#a_diab_stro_bring_glucose",
+                "impacts": "ifAction(true)\r\n  .set($risk_act,+10)\r\n  .set($strokeRisk, -11%)\r\n  .strike(#db_stroke)",
+                "ordering": 10,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 57,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              },
+              {
+                "id": 59,
+                "name": "Never start smoking",
+                "handle": "#a_diab_stro_never_start",
+                "impacts": "ifAct(true)\r\n  .setRR($strokeRisk,2.58)\r\n  .set($risk_act,+10)",
+                "ordering": 30,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 57,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              },
+              {
+                "id": 60,
+                "name": "Quit smoking",
+                "handle": "#a_diab_stro_quit_smoking",
+                "impacts": "ifAction(true)\r\n  .set($strokeRisk,-42)\r\n  .set($risk_act,+10)\r\nifAction(Never)\r\n  .setRR($strokeRisk, 1.34)",
+                "ordering": 20,
+                "flavor": "action",
+                "data": {
+                },
+                "text": "",
+                "picker": "PickDot()",
+                "parent_id": 57,
+                "children_count": 0,
+                "depth": 3,
+                "active": true,
+                "children": [
+
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Disease",
+    "handle": "#g_disease",
+    "impacts": "",
+    "ordering": 30,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 1,
+    "depth": 0,
+    "active": true,
+    "children": [
+      {
+        "id": 62,
+        "name": "Covid-19",
+        "handle": "#c_covid-19",
+        "impacts": ".hide()\r\n.ifCond(true)\r\n  .show()\r\n  .set($risk,-25)\r\n  .set($risk_act,-25)",
+        "ordering": 30,
+        "flavor": "condition",
+        "data": {
+          "pose3D": {
+            "hideShows": [
+              {
+                "h": ".*"
+              },
+              {
+                "s": "#respiratory"
+              },
+              {
+                "s": "#lymphatic"
+              },
+              {
+                "s": "#circulatory"
+              }
+            ]
+          }
+        },
+        "text": "",
+        "picker": "PickDot()",
+        "parent_id": 61,
+        "children_count": 1,
+        "depth": 1,
+        "active": true,
+        "children": [
+          {
+            "id": 63,
+            "name": "Cytokine storm",
+            "handle": "#r_covi_cytokine_storm",
+            "impacts": ".say(Death from acute inflammation in lung tissue)\r\n\r\n\r\n.ifStruc(#c_copd,true)\r\n  .say(COPD increases this risk)\r\n\r\n.ifStruc(#c_diabetes,true)\r\n  .say(Diabetes increases this risk)",
+            "ordering": null,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 62,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Divider1",
+    "handle": "#g_divider1",
+    "impacts": "",
+    "ordering": 100,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "Line()",
+    "parent_id": null,
+    "children_count": 0,
+    "depth": 0,
+    "active": false,
+    "children": [
+
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Heart",
+    "handle": "#g_heart",
+    "impacts": "",
+    "ordering": 40,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 1,
+    "depth": 0,
+    "active": true,
+    "children": [
+      {
+        "id": 65,
+        "name": "Hypertension",
+        "handle": "#c_hypertension",
+        "impacts": ".hide()\r\n.ifCond(true)\r\n  .show()\r\n  .set($risk,-25)\r\n  .set($risk_act,-25)\r\n  .say(Blood pressure that is often dangerously too high. Also called Hypertension.)\r\n  .say(Age: Men get HBP until age 64 more often while women who get it more after 65.)\r\n  .say(Race: If you are African American, HBP happens at a younger age than others.)\r\n  .say(Family history: High blood pressure tends to run in families.)\r\n\r\n//.say(Weight: Being overweight: inherently raises you BP)\r\n//.say(Inactivity: Exercise can help, but a lack of exercise an an over-fast heart rate is bad))\r\n//.say(Tobacco use raises your blood pressure and even damage your artery walls bringing on heart disease.)\r\n//.say(Salt: Eating too much salt increases blood pressure)",
+        "ordering": 40,
+        "flavor": "condition",
+        "data": {
+          "pose3D": {
+            "markers": [
+              {
+                "bg": "#FF0000",
+                "icon": "big-X",
+                "text": "Hypertension",
+                "place": "heart"
+              }
+            ],
+            "hideShows": [
+              {
+                "h": ".*"
+              },
+              {
+                "s": "heart"
+              },
+              {
+                "s": "arteries.*"
+              },
+              {
+                "s": "veins.*"
+              }
+            ],
+            "highlights": [
+              {
+                "bg": "#FF0000",
+                "place": "hearttrachea"
+              }
+            ]
+          }
+        },
+        "text": "",
+        "picker": "PickDot()",
+        "parent_id": 64,
+        "children_count": 1,
+        "depth": 1,
+        "active": true,
+        "children": [
+          {
+            "id": 66,
+            "name": "Heart wall thickening",
+            "handle": "#r_hype_heart_wall",
+            "impacts": ".say(Increased risk of heart failure)",
+            "ordering": null,
+            "flavor": "risk",
+            "data": {
+            },
+            "text": "",
+            "picker": "",
+            "parent_id": 65,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Hidden",
+    "handle": "#g_hidden",
+    "impacts": ".hide()",
+    "ordering": 90,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 3,
+    "depth": 0,
+    "active": false,
+    "children": [
+      {
+        "id": 68,
+        "name": "Blood Pressure",
+        "handle": "#c_blood_pressure",
+        "impacts": "",
+        "ordering": 40,
+        "flavor": "condition",
+        "data": {
+          "pose3D": {
+            "mesh": "Female",
+            "cameras": [
+
+            ],
+            "markers": [
+              {
+                "bg": "#FF0000",
+                "icon": "big-X",
+                "place": "heart"
+              }
+            ],
+            "hideShows": [
+              {
+                "h": ".*"
+              },
+              {
+                "s": "heart"
+              },
+              {
+                "s": "arteries.*"
+              },
+              {
+                "s": "veins.*"
+              }
+            ],
+            "highlights": [
+              {
+                "bg": "#FF0000",
+                "place": "heart"
+              }
+            ]
+          }
+        },
+        "text": "",
+        "picker": "PickBloodPressure()",
+        "parent_id": 67,
+        "children_count": 0,
+        "depth": 1,
+        "active": true,
+        "children": [
+
+        ]
+      },
+      {
+        "id": 69,
+        "name": "Mental",
+        "handle": "#g_mental",
+        "impacts": "",
+        "ordering": null,
+        "flavor": "condition_group",
+        "data": {
+          "pose3D": {
+            "mesh": "Female",
+            "cameras": [
+
+            ],
+            "markers": [
+              {
+                "bg": "#FF0000",
+                "icon": "big-X",
+                "place": "brain"
+              }
+            ],
+            "hideShows": [
+              {
+                "h": ".*"
+              },
+              {
+                "s": "brain"
+              },
+              {
+                "s": "nerves.*"
+              },
+              {
+                "s": "spinal-cord"
+              }
+            ],
+            "highlights": [
+              {
+                "bg": "#FF0000",
+                "place": "brain"
+              }
+            ]
+          }
+        },
+        "text": "",
+        "picker": "Group",
+        "parent_id": 67,
+        "children_count": 1,
+        "depth": 1,
+        "active": true,
+        "children": [
+          {
+            "id": 70,
+            "name": "Stress",
+            "handle": "#c_stress",
+            "impacts": "",
+            "ordering": null,
+            "flavor": "condition",
+            "data": {
+              "pose3D": {
+                "mesh": "Female",
+                "cameras": [
+
+                ],
+                "markers": [
+                  {
+                    "bg": "#FF0000",
+                    "icon": "big-X",
+                    "place": "brain"
+                  }
+                ],
+                "hideShows": [
+                  {
+                    "h": ".*"
+                  },
+                  {
+                    "s": "brain"
+                  },
+                  {
+                    "s": "nerves.*"
+                  },
+                  {
+                    "s": "spinal-cord"
+                  }
+                ],
+                "highlights": [
+                  {
+                    "bg": "#FF0000",
+                    "place": "brain"
+                  }
+                ]
+              }
+            },
+            "text": "",
+            "picker": "Pick(None,Low,Medium,High)",
+            "parent_id": 69,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "id": 71,
+        "name": "Skeletal",
+        "handle": "#g_skeletal",
+        "impacts": "",
+        "ordering": null,
+        "flavor": "condition_group",
+        "data": {
+        },
+        "text": "",
+        "picker": "",
+        "parent_id": 67,
+        "children_count": 1,
+        "depth": 1,
+        "active": true,
+        "children": [
+          {
+            "id": 72,
+            "name": "Broken Leg",
+            "handle": "#c_broken_leg",
+            "impacts": null,
+            "ordering": null,
+            "flavor": "condition",
+            "data": {
+            },
+            "text": "",
+            "picker": "PickSwitch()",
+            "parent_id": 71,
+            "children_count": 0,
+            "depth": 2,
+            "active": true,
+            "children": [
+
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Summary Actions",
+    "handle": "#g_summary_actions",
+    "impacts": ".set($risk_act,100)\r\n.tag(#summary_a)\r\n//.say(Summary A)\r\n.say(\r\n<GradientLife score=\"{$risk_act}\" txt=\"Take Action\" clz=\"actions\"/>\r\n)\r\n.say(\r\n<GradientLife score=\"{$risk}\" txt=\"Do Nothing\" clz=\"actions\"/>\r\n)",
+    "ordering": null,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 0,
+    "depth": 0,
+    "active": true,
+    "children": [
+
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Summary Conditions",
+    "handle": "#g_summary_conditions",
+    "impacts": ".set($risk,100)\r\n.tag(#summary_c)\r\n//.say(Summary)\r\n.say(\r\n<GradientLife score=\"{$risk}\" txt=\"Current Health Status\" clz=\"col conditions page-header__health-gradient hidden-print ml-2\"/>\r\n)",
+    "ordering": null,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "",
+    "parent_id": null,
+    "children_count": 0,
+    "depth": 0,
+    "active": true,
+    "children": [
+
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Vitals",
+    "handle": "#g_vitals",
+    "impacts": null,
+    "ordering": null,
+    "flavor": "condition_group",
+    "data": {
+    },
+    "text": "",
+    "picker": "Group",
+    "parent_id": null,
+    "children_count": 4,
+    "depth": 0,
+    "active": true,
+    "children": [
+      {
+        "id": 79,
+        "name": "Age",
+        "handle": "#c_vitals_age",
+        "impacts": "",
+        "ordering": 20,
+        "flavor": "condition",
+        "data": {
+        },
+        "text": "",
+        "picker": "PickInteger(18,104,1)",
+        "parent_id": 73,
+        "children_count": 0,
+        "depth": 1,
+        "active": true,
+        "children": [
+
+        ]
+      },
+      {
+        "id": 74,
+        "name": "GENDER AT BIRTH",
+        "handle": "#c_vitals_sex",
+        "impacts": "",
+        "ordering": 10,
+        "flavor": "condition",
+        "data": {
+          "pose3D": {
+            "cameras": [
+
+            ],
+            "markers": [
+
+            ],
+            "hideShows": [
+              {
+                "s": ".*"
+              }
+            ],
+            "highlights": [
+
+            ]
+          }
+        },
+        "text": "",
+        "picker": "PickPipesNameUnder(Female,Male,Other)",
+        "parent_id": 73,
+        "children_count": 0,
+        "depth": 1,
+        "active": true,
+        "children": [
+
+        ]
+      },
+      {
+        "id": 82,
+        "name": "Height",
+        "handle": "#c_vitals_height",
+        "impacts": "",
+        "ordering": 40,
+        "flavor": "condition",
+        "data": {
+        },
+        "text": "",
+        "picker": "PickInteger(40,84,1,feet)",
+        "parent_id": 73,
+        "children_count": 0,
+        "depth": 1,
+        "active": true,
+        "children": [
+
+        ]
+      },
+      {
+        "id": 80,
+        "name": "Weight",
+        "handle": "#c_vitals_weight",
+        "impacts": "",
+        "ordering": 30,
+        "flavor": "condition",
+        "data": {
+        },
+        "text": "",
+        "picker": "PickInteger(40,400,5)",
+        "parent_id": 73,
+        "children_count": 0,
+        "depth": 1,
+        "active": true,
+        "children": [
+
+        ]
+      }
+    ]
+  }
+]

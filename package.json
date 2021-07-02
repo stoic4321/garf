@@ -1,0 +1,38 @@
+{
+  "name": "3dbiome",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-react": "^7.10.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bootstrap": "^4.5.0",
+    "datatables": "^1.10.18",
+    "date-fns": "^2.21.1",
+    "dotenv": "^8.2.0",
+    "echarts": "^5.0.2",
+    "echarts-for-react": "^3.0.1",
+    "jquery": "^3.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "markdown-to-jsx": "^7.1.2",
+    "popper.js": "^1.16.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
+    "react-qr-code": "^1.1.1",
+    "react-responsive": "^8.1.0",
+    "react_ujs": "^2.6.1",
+    "select2": "^4.0.13",
+    "superagent": "^6.1.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}

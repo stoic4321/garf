@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: 3dbiome
+  #username: 3dbiome
+  #password:
+  #host: localhost
+  #port: 5432
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: 3dbiome_test
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+  #database: <%= ENV['DATABASE_NAME'] %>
+  #username: <%= ENV['DATABASE_USER'] %>
+  #password: <%= ENV['DATABASE_PASSWORD'] %>
