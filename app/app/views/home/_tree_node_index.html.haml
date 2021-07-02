@@ -1,9 +1,0 @@
-%li.list-group-item{class: node.flavor.parameterize}
-  .pb-2
-    %small{style:'color:#999'}= node.display_flavor
-    %br
-  = node.name
-  - if node.children.try(:any?)
-    %ul.list-group.pt-2
-      - node.children.each do |child|
-        = render partial: "tree_node_index", locals: {node: child}

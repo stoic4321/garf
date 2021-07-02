@@ -1,7 +1,0 @@
-.cc-sidebar__nav.position-relative{class: ["cc-sidebar__nav--#{location}", active_state(location)]}
-  = link_to link, class: "nav-link" do
-    = icon(icon)
-    - if active_state?(location)
-      %span.sr-only (current)
-    - if subtext
-      .cc-sidebar__nav--subtext= subtext
