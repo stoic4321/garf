@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @journey.user_id
+%p
+  %b Name:
+  = @journey.name
+%p
+  %b Data:
+  %pre= JSON.pretty_generate(JSON.parse(@journey.data), {indent: "  ", object_nl: "\n"})
+%p
+  %b Token:
+  = link_to journey_path(@journey.token)
+
+= link_to 'Edit', edit_admin_journey_path(@journey)
+\|
+= link_to 'Back', admin_journeys_path

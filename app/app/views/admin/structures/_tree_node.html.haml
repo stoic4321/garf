@@ -1,0 +1,24 @@
+%li.list-group-item{class: node.flavor.parameterize}
+  %span{style:'color:#999;font-size:0.8rem'}
+    = (node.flavor=='condition_group') ? 'Group' : node.flavor.try(:capitalize)
+  %small.pb-2{style:'color:#999'}
+    - if ( !node.picker.empty? )
+      %span.pl-4{style:'color:#ccc'}
+        Picker:
+      %code{style:'color:#999'}
+        = node.picker
+    - if ( node.data_hash && (node.data != '{}') )
+      %span.pl-4{style:'color:#ccc'}
+        data:
+      %span= "{ #{ safe_top_keys(node.data_hash) } }"
+      - if (!node.active)
+        %span.ml-4{style:'color:#744'} Inactive
+    %span{style:'float:right;'}= node.handle
+    %br
+    = node.ordering && "#{node.ordering}."
+    = link_to node.name, [:admin, node], style:'text-decoration:underline; color:#58b; font-size:120%'
+    = link_to 'Edit', edit_admin_structure_path(node), class: ('btn btn-sm btn-light ml-1'), style: 'height: 1.4rem; line-height:0.8; color:grey; border:solid 1px #eee'
+  - if node.children.try(:any?)
+    %ul.list-group.pt-2
+      - node.children.sort_by{|n| (n['ordering'] || 10000)}.each do |child|
+        = render partial: "tree_node", locals: {node: child}

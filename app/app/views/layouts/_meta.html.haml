@@ -1,0 +1,9 @@
+%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+%meta{:content => "minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, width=device-width", :name => "viewport"}/
+%title= meta_title
+= csrf_meta_tags
+= csp_meta_tag
+= stylesheet_pack_tag 'application', media: 'all'
+= javascript_pack_tag 'application'
+= stylesheet_link_tag 'https://3dbiome.s3.amazonaws.com/TemplateData/UnityStyle.css', media: 'all'
+= yield :header_scripts

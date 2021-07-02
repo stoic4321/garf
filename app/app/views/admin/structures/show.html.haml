@@ -1,0 +1,71 @@
+%p#notice= notice
+
+= link_to '< Table', admin_structures_path, class:'btn btn-secondary mr-2'
+= link_to '< Tree', tree_admin_structures_path, class:'btn btn-secondary mr-2'
+= link_to 'Edit', edit_admin_structure_path(@structure), class:'btn btn-primary mr-2'
+= link_to 'New', new_admin_structure_path, class:'btn btn-secondary mr-2'
+
+%br
+%br
+
+%p
+  %b.d-inline Name:
+  %b{style:'font-size:30px'}
+    = @structure.name
+%p
+  %b Handle:
+  = @structure.handle
+%p
+  %b Flavor:
+  = @structure.flavor
+%p
+  %b Text:
+  %pre.codified{style:'background:#222; color:yellow; padding:30px;'}
+    = @structure.text
+%p
+  %b Picker:
+  %code= @structure.picker
+%p
+  %b Data:
+  %pre.codified{style:'background:#222; color:lime; padding:30px;'}
+    = JSON.pretty_generate(@structure.data, {indent: "  ", object_nl: "\n"})
+%p
+  %b Impacts:
+  %pre.codified{style:'background:#222; color:lime; padding:30px;'}
+    = @structure.impacts
+.border.border-dark.p-3.mb-4
+  %p
+    %b Parent:
+    - if @structure.parent
+      = link_to @structure.parent.try(:name), [:admin, @structure.parent]
+    -# = @structure.parent.try(:name)
+  %p
+    %b Children:
+    - if @structure.children.try(:any?)
+      \|
+      - @structure.children.each do |child|
+        = "#{child.ordering}."
+        = link_to child.name, [:admin, child]
+        \|
+  %p
+    %b Siblings:
+    - if @structure.parent && @structure.parent.children.try(:any?)
+      \|
+      - @structure.parent.children.each do |child|
+        - if @structure.id == child.id
+          &gt;&gt;&gt;
+        = "#{child.ordering}."
+        = link_to child.name, [:admin, child]
+        \|
+  %p
+    %b Ordering:
+    = @structure.ordering
+  %p
+    %b Active:
+    = @structure.active
+
+= link_to '< Table', admin_structures_path, class:'btn btn-secondary mr-2'
+= link_to '< Tree', tree_admin_structures_path, class:'btn btn-secondary mr-2'
+= link_to 'Edit', edit_admin_structure_path(@structure), class:'btn btn-primary mr-2'
+= link_to 'New', new_admin_structure_path, class:'btn btn-secondary mr-2'
+= link_to 'Destroy', [:admin, @structure], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-secondary text-danger mr-2'

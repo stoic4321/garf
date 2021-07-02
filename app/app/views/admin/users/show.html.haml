@@ -1,0 +1,14 @@
+%p
+  %b Name:
+  = @user.name
+
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Role:
+  = @user.display_role
+
+= link_to 'Edit', edit_admin_user_path(@user)
+\|
+= link_to 'Back', admin_users_path
