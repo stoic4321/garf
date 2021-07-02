@@ -1,0 +1,7 @@
+- if flash
+  - flash.to_h.each do |key, value|
+    - next if key.to_s == 'timedout'
+    .cc-alert.alert.text-center.alert-dismissible.fade.show{class: flash_class(key), role: :alert}
+      = value
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×

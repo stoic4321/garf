@@ -1,0 +1,1 @@
+json.structures @structures, partial: "api/structures/structure", as: :structure
